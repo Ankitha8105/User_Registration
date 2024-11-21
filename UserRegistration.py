@@ -51,12 +51,35 @@ def valid_lname(l_name):
     except Exception as e:
         log.error("Some error occured")
         return False
+    
+def valid_email(email):
+    """
+    Description:
+        This function checks if user entered valid email
+    Parameter:
+        email: the email to be checked
+    Returns:
+        None
+    """
+    try:
+        if (re.match('^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2})?$',email)):
+            log.info("Valid Email")
+            return True
+        else:
+            log.error("Invalid Email Please correct it")
+            return False
+
+    except Exception as e:
+        log.error("Error occured")
+        return False
 
 def main():
     first_name =input("Enter your First Name :")
     valid_firstname(first_name)
     last_name = input("Enter your last name :")
     valid_lname(last_name)
+    email = input("Enter your Email :")
+    valid_email(email)
 
 if __name__ == "__main__":
     main()
