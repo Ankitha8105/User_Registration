@@ -72,6 +72,25 @@ def valid_email(email):
     except Exception as e:
         log.error("Error occured")
         return False
+    
+def valid_mobilenum(mobile_num):
+    """
+    Description:
+        This function checks if user entered valid Mobile Number
+    Parameter:
+        mobile_num: the mobile number to be checked
+    Returns:
+        None
+    """
+    try:
+        if (re.match('^\d\d.\d{10}$',mobile_num)):
+            log.info("Valid mobile number")
+            return True
+        else:
+            log.error("Invalid! ,Please enter correct email")
+            return False
+    except Exception as e:
+        log.error("Some Interruption is occured")
 
 def main():
     first_name =input("Enter your First Name :")
@@ -80,6 +99,8 @@ def main():
     valid_lname(last_name)
     email = input("Enter your Email :")
     valid_email(email)
+    mobile_num = input("Enter valid mobile number :")
+    valid_mobilenum(mobile_num)
 
 if __name__ == "__main__":
     main()
