@@ -17,3 +17,7 @@ def test_fname_valid(fname,expected):
 @pytest.mark.parametrize("lname,expected",[("Reddy",True),('kumar',False),('Ab',False)])
 def test_lname_valid(lname,expected):
     assert UserRegistration.valid_lname(lname) == expected
+
+@pytest.mark.parametrize("email,expected",[("abc.xyz@bl.co.in",True),('.xyz@bl.co.in',False),('abc@bl.co',True)])
+def test_email_valid(email,expected):
+    assert UserRegistration.valid_email(email) == expected
