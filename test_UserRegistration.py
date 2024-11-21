@@ -21,3 +21,7 @@ def test_lname_valid(lname,expected):
 @pytest.mark.parametrize("email,expected",[("abc.xyz@bl.co.in",True),('.xyz@bl.co.in',False),('abc@bl.co',True)])
 def test_email_valid(email,expected):
     assert UserRegistration.valid_email(email) == expected
+
+@pytest.mark.parametrize("mobilenum,expected",[("91 9876543212",True),('098765432',False),('91 9986448691',True)])
+def test_email_valid(mobilenum,expected):
+    assert UserRegistration.valid_mobilenum(mobilenum) == expected
