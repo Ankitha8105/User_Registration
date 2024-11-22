@@ -105,7 +105,7 @@ def validate_password(password):
         if (len(password) < 8):
             log.info("Password should be minimum of 8 characters")
             return False      
-        elif (re.match('^(?=.*[A-Z])(?=.*\d)[A-Za-z0-9]*$',password)):
+        elif (re.match('^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]*$',password)):
             log.info("Valid password")
             return True
         else:
