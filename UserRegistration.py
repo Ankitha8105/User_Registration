@@ -116,14 +116,14 @@ def validate_password(password):
         return False
 
 def main():
-    '''first_name =input("Enter your First Name :")
+    first_name =input("Enter your First Name :")
     valid_firstname(first_name)
     last_name = input("Enter your last name :")
     valid_lname(last_name)
     email = input("Enter your Email :")
     valid_email(email)
     mobile_num = input("Enter valid mobile number :")
-    valid_mobilenum(mobile_num)'''
+    valid_mobilenum(mobile_num)
     password = input("Enter password :")
     validate_password(password)
 
