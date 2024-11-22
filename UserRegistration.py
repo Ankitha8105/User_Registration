@@ -83,7 +83,7 @@ def valid_mobilenum(mobile_num):
         None
     """
     try:
-        if (re.match('^\d\d.\d{10}$',mobile_num)):
+        if (re.match('^\d\d\s\d{10}$',mobile_num)):
             log.info("Valid mobile number")
             return True
         else:
@@ -91,6 +91,26 @@ def valid_mobilenum(mobile_num):
             return False
     except Exception as e:
         log.error("Some Interruption is occured")
+
+def validate_password(password):
+    """
+    Description:
+        This function checks if user entered valid password
+    Parameter:
+        mobile_num: the password to be checked
+    Returns:
+        None
+    """
+    try:
+        if (re.match('^[A-Za-z]{8}$',password)):
+            log.info("Valid password")
+            return True
+        else:
+            log.error("Invalid! password should be minimumof 8 characters")
+            return False
+    except Exception as e:
+        log.error(f"Interruption occured :{e}")
+        return False
 
 def main():
     first_name =input("Enter your First Name :")
@@ -101,6 +121,8 @@ def main():
     valid_email(email)
     mobile_num = input("Enter valid mobile number :")
     valid_mobilenum(mobile_num)
+    password = input("Enter password :")
+    validate_password(password)
 
 if __name__ == "__main__":
     main()
