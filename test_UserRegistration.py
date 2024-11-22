@@ -18,7 +18,7 @@ def test_fname_valid(fname,expected):
 def test_lname_valid(lname,expected):
     assert UserRegistration.valid_lname(lname) == expected
 
-@pytest.mark.parametrize("email,expected",[("abc.xyz@bl.co.in",True),('.xyz@bl.co.in',False),('abc@bl.co',True)])
+@pytest.mark.parametrize("email,expected",[("abc",False),('abc@.com.my',False),('abc123@gmail.a',False),('abc123@.com',False),('abc123@.com.com',False),('.abc@abc.com',False),('abc()*@gmail.com',False),('abc@%*.com',False),('abc..2002@gmail.com',False),('abc.@gmail.com',False),('abc@abc@gmail.com',False),('abc@gmail.com.1a',False),('abc@gmail.com.aa.au',False)])
 def test_email_valid(email,expected):
     assert UserRegistration.valid_email(email) == expected
 
