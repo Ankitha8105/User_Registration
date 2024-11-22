@@ -25,3 +25,7 @@ def test_email_valid(email,expected):
 @pytest.mark.parametrize("mobilenum,expected",[("91 9876543212",True),('098765432',False),('91 9986448691',True)])
 def test_email_valid(mobilenum,expected):
     assert UserRegistration.valid_mobilenum(mobilenum) == expected
+
+@pytest.mark.parametrize("password,expected_password",[('Thgfdcbn',True),('Hhhh58hg',False)])
+def test_password_valid(password,expected_password):
+    assert UserRegistration.validate_password(password) == expected_password
