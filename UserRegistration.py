@@ -102,25 +102,28 @@ def validate_password(password):
         None
     """
     try:
-        if (re.match('^[A-Za-z]{8}$',password)):
+        if (len(password) < 8):
+            log.info("Password should be minimum of 8 characters")
+            return False
+        elif (re.match('^[A-Za-z]*$',password)):
             log.info("Valid password")
             return True
         else:
-            log.error("Invalid! password should be minimumof 8 characters")
+            log.error("Invalid! password should be minimumof 8 characters with one upper case")
             return False
     except Exception as e:
         log.error(f"Interruption occured :{e}")
         return False
 
 def main():
-    first_name =input("Enter your First Name :")
+    '''first_name =input("Enter your First Name :")
     valid_firstname(first_name)
     last_name = input("Enter your last name :")
     valid_lname(last_name)
     email = input("Enter your Email :")
     valid_email(email)
     mobile_num = input("Enter valid mobile number :")
-    valid_mobilenum(mobile_num)
+    valid_mobilenum(mobile_num)'''
     password = input("Enter password :")
     validate_password(password)
 
